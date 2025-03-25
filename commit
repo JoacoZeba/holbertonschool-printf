@@ -1,4 +1,4 @@
 #!/bin/bash
 git add .
-git commit -m 'commit'
+git commit -m 'Se agregaron los archivos main.c y main.h, junto con el README.md'
 git push
