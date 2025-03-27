@@ -1,0 +1,115 @@
+.TH _PRINTF 3 "March 2025" "Version 1.0" "Library Functions"
+.SH NAME
+_printf \- Custom implementation of the printf function
+
+.SH SYNOPSIS
+.B #include "main.h"
+.PP
+int _printf(const char *format, ...);
+
+.SH DESCRIPTION
+The function \fB_printf\fP generates output according to a format string. It is a custom implementation of the standard C library function \fBprintf\fP. The function processes a format string and, based on the format specifiers, prints the values of the provided arguments.
+
+The function accepts the following format specifiers:
+.B c
+Prints a single character.
+.B s
+Prints a string of characters.
+.B %
+Prints a percentage symbol (no argument required).
+.B d, i
+Prints an integer in decimal format.
+
+The format string can contain any number of these specifiers, and the corresponding arguments should be passed in the same order.
+
+.SH FORMAT SPECIFIERS
+The following conversion specifiers are supported:
+.TP
+.B c
+Prints a single character.
+.TP
+.B s
+Prints a string of characters.
+.TP
+.B %
+Prints a percentage symbol.
+.TP
+.B d, i
+Prints an integer in decimal format.
+
+.SH RETURN VALUE
+The function \fB_printf\fP returns the total number of characters printed, excluding the null byte used to terminate the output string.
+
+.SH ERRORS
+If the format specifier is not recognized, the function will print the format specifier as text, without throwing an error. For example, if the specifier "%r" is used, it will be printed literally as "%r".
+
+.SH IMPLEMENTATION
+The function _printf works by iterating through the format string and checking each character. When it encounters a `%` symbol, it examines the next character to determine the format specifier type. Based on the specifier, it calls an auxiliary function to print the corresponding value.
+
+The function internally uses various helper functions to handle specific cases:
+- \fBprint_char()\fP: Prints a single character.
+- \fBprint_string()\fP: Prints a string of characters.
+- \fBprint_int()\fP: Prints an integer.
+- \fBwrite()\fP: Used to write directly to the standard output.
+
+.SH EXAMPLES
+Example 1: Print a string.
+.nf
+_printf("Hello, %s!\n", "world");
+.fi
+Output:
+.nf
+Hello, world!
+.fi
+
+Example 2: Print a character.
+.nf
+_printf("Character: %c\n", 'A');
+.fi
+Output:
+.nf
+Character: A
+.fi
+
+Example 3: Print an integer.
+.nf
+_printf("Number: %d\n", 123);
+.fi
+Output:
+.nf
+Number: 123
+.fi
+
+Example 4: Print a percentage symbol.
+.nf
+_printf("Percentage: %%\n");
+.fi
+Output:
+.nf
+Percentage: %
+.fi
+
+Example 5: Unrecognized specifier.
+.nf
+_printf("Unknown: %r\n");
+.fi
+Output:
+.nf
+Unknown: %r
+.fi
+
+.SH IMPLEMENTATION DETAILS
+The _printf function is implemented by iterating through the format string. Each time a `%` character is found, it checks the next character to determine the conversion type. If the specifier is one of the supported ones (`c`, `s`, `%`, `d`, `i`), it calls the corresponding helper function to print the value. If the specifier is not recognized, it simply prints it as part of the text.
+
+The implementation uses several helper functions to handle specific cases:
+- \fBprint_char()\fP: To print a single character.
+- \fBprint_string()\fP: To print a string of characters.
+- \fBprint_int()\fP: To handle printing integers.
+- \fBwrite()\fP: To perform direct writing to the standard output.
+
+.SH AUTHOR
+Your Name <your_email@example.com>
+
+.SH SEE ALSO
+.B printf(3)
+
