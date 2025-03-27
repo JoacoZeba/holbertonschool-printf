@@ -21,8 +21,8 @@ int print_string(char *s)
 {
 	int count = 0;
 
-	if (!s)
-		s = "(null)";
+	if (!s) 
+		return (NULL);
 
 	while (*s)
 		count += write(1, s++, 1);

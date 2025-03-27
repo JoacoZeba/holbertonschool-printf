@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
+#include <unistd.h>
 /**
  * _printf - Produces output according to a format.
  * @format: The format string containing directives.
@@ -15,8 +16,6 @@ int _printf(const char *format, ...)
 	int count = 0;
 	va_list args;
 
-	count = 0;
-
 	if (!format)
 		return (-1);
 
@@ -27,6 +26,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
+
 			if (*format == 'c')
 				count += print_char(va_arg(args, int));
 			else if (*format == 's')
@@ -42,7 +42,9 @@ int _printf(const char *format, ...)
 			}
 		}
 		else
+		{
 			count += write(1, format, 1);
+		}
 		format++;
 	}
 
