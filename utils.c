@@ -38,7 +38,9 @@ void convert_int(char *buffer, int num)
 	for (j = 0, k = i - 1; j < k; j++, k--)
 	{
 		char temp = buffer[j];
+
 		buffer[j] = buffer[k];
+
 		buffer[k] = temp;
 	}
 }

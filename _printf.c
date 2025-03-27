@@ -7,7 +7,7 @@
  * Description: This function mimics the standard printf function.
  * It processes the format string and calls the corresponding handlers
  * for each format specifier found.
- * 
+ *
  * Return: Number of characters printed (excluding null byte).
  */
 int _printf(const char *format, ...)
@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
 			else if (*format == 'd' || *format == 'i')
 				count += print_int(va_arg(args, int));
 			else if (*format == '%')
-				count += write(1, "%", 1);
+				count += write(1, "%%", 1);
 			else
 			{
 				count += write(1, "%", 1);

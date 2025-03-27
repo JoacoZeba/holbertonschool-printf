@@ -7,5 +7,5 @@ int print_char(char c);
 int print_string(char *s);
 int print_int(int n);
 void convert_int(char *buffer, int num);
-
+int _putchar(char);
 #endif /* MAIN_H */

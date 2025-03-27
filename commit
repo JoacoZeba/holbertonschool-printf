@@ -1,4 +1,4 @@
 #!/bin/bash
 git add .
-git commit -m '´Primer test de los script'
+git commit -m 'segundo test de los script'
 git push
