@@ -1,7 +1,16 @@
 #include "main.h"
 #include <stdarg.h>
 #include <unistd.h>
-
+/**
+ * _printf - Produces output according to a format.
+ * @format: The format string containing directives.
+ *
+ * Description: This function mimics the standard printf function.
+ * It processes the format string and calls the corresponding handlers
+ * for each format specifier found.
+ *
+ * Return: Number of characters printed (excluding null byte).
+ */
 int handle_format(const char *format, va_list args);
 
 int _printf(const char *format, ...)
