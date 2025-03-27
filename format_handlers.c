@@ -22,7 +22,7 @@ int print_string(char *s)
 	int count = 0;
 
 	if (!s) 
-		return (NULL);
+		return ('NULL');
 
 	while (*s)
 		count += write(1, s++, 1);
