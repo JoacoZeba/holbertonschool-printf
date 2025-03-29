@@ -1,10 +1,12 @@
 #include "main.h"
+#include <unistd.h>
+#include <string.h>
 
 /**
- * print_char - Prints a single character.
- * @c: The character to print.
+ * print_char - Imprime un solo carácter.
+ * @c: El carácter a imprimir.
  *
- * Return: Number of characters printed (always 1).
+ * Return: Número de caracteres impresos (siempre 1).
  */
 int print_char(char c)
 {
@@ -12,10 +14,10 @@ int print_char(char c)
 }
 
 /**
- * print_string - Prints a string.
- * @s: The string to print.
+ * print_string - Imprime una cadena.
+ * @s: La cadena a imprimir.
  *
- * Return: Number of characters printed.
+ * Return: Número de caracteres impresos.
  */
 int print_string(char *s)
 {
@@ -24,28 +26,24 @@ int print_string(char *s)
 	if (!s)
 		s = "(null)";
 	while (*s)
-	{
 		count += write(1, s++, 1);
-	}
+
 	return (count);
 }
 
 /**
- * print_int - Prints an integer.
- * @n: The integer to print.
+ * print_int - Imprime un número entero.
+ * @n: El número a imprimir.
  *
- * Return: Number of characters printed.
+ * Return: Número de caracteres impresos.
  */
 int print_int(int n)
 {
 	char buffer[12];
 	int count = 0;
-	int i;
 
-	convert_int (buffer, n);
-	for (i = 0; buffer[i]; i++)
-	{
-		count += write(1, &buffer[i], 1);
-	}
+	convert_int(buffer, n);
+	count = write(1, buffer, strlen(buffer));
+
 	return (count);
 }

@@ -35,12 +35,14 @@ void convert_int(char *buffer, int num)
 	buffer[i] = '\0';
 
 	/* Reverse the string */
-	for (j = 0, k = i - 1; j < k; j++, k--)
+	j = 0;
+	k = i - 1;
+	while (j < k)
 	{
-		char temp = buffer[j];
-
+		char tmp = buffer[j];
 		buffer[j] = buffer[k];
-
-		buffer[k] = temp;
+		buffer[k] = tmp;
+		j++;
+		k--;
 	}
 }
