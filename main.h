@@ -2,7 +2,7 @@
 #define MAIN_H
 
 #include <stdarg.h>
-
+int handle_format(const char *format, va_list args);
 int _printf(const char *format, ...);
 int print_char(char c);
 int print_string(char *s);
